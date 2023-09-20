@@ -12,8 +12,8 @@ class Pet:
 class Dog(Pet):
     def bark(self, n):
         for i in range(0, n):
-                if i < n:
-                    print("bark!")
+            if i < n:
+                print("bark!")
 
 class Cat(Pet):
     def meow(self, n):
