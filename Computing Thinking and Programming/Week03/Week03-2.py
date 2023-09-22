@@ -20,3 +20,14 @@ class Cat(Pet):
         for i in range(0, n):
             if i < n:
                 print("meow~")
+
+if __name__ == '__main__':
+    popo = Dog('popo', 10)
+    popo.bark(3) 
+    print(popo)
+    print('사람 나이로 환산 :', popo.human_age())
+
+    pipi = Cat('pipi', 5)
+    pipi.meow(4) 
+    print(pipi)
+    print('사람 나이로 환산 :', pipi.human_age())
