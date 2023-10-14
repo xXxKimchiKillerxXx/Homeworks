@@ -3,11 +3,11 @@ from tkinter import *
 tasks = []
 
 def add():
-    task = entry.get()
+    task = str(entry.get())
     if task:
         tasks.append(task)
         update()
-        entry.remove(0, END)
+        entry.delete(0, END)
 
 def remove():
     number = listbox.curselection()
@@ -17,7 +17,7 @@ def remove():
         update()
 
 def update():
-    listbox.remove(0, END)
+    listbox.delete(0, END)
     for task in tasks:
         listbox.insert(END, task)
 
