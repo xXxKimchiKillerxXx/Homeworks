@@ -28,6 +28,12 @@ listbox4 = Listbox(window)
 
 from re import *
 
+def update():
+    # Re-query the database to fetch the latest data
+    cur.execute("SELECT * FROM md202310631")
+    global rows
+    rows = cur.fetchall()
+
 def add():
     data1 = entry1.get()
     data2 = entry2.get()
@@ -60,8 +66,8 @@ def reset():
 
 def refresh():
     reset()
+    update()
 
-    rows = cur.fetchall()
     if rows == None:
         messagebox.showerror("오류", "데이터가 없습니다")
     else:
@@ -83,6 +89,7 @@ def refresh():
             listbox2.insert(END, row[1])
             listbox3.insert(END, row[2])
             listbox4.insert(END, row[3])
+        print(rows)
 
 btn_input = Button(window, text = "입력", command = add)
 btn_view = Button(window, text = "조회", command = refresh)
